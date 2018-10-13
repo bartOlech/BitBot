@@ -91,6 +91,11 @@ body{
 #limit-price{
     margin-top:0;
 }
+.input-StopLimit-price{
+    display:flex;
+    flex-direction: column;
+    margin-top:15px;
+}
 
 .buy-sell-btn input{
     position: absolute;

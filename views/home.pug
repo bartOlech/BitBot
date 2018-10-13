@@ -30,6 +30,9 @@ html(lang="en")
                         .input-limit-price
                             label(for='limit-price' class='limit-price') Limit Price:
                             input(type='text' class='limit-price' name='limit-price' id='limit-price' placeholder='USD')
+                        .input-StopLimit-price(style='display:none')
+                            label(for='stop-limit-price' class='Slimit-price') Stop Price:
+                            input(type='text' class='stop-limit-price' name='limit-price' id='stop-limit-price' placeholder='USD')
                     .buy-sell-btn
                         input(type='radio' id='buy-btn' name='buy-sell' checked='checked')
                         label(for='buy-btn' class='buy-btn-text' style='animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);') Buy / Long 
@@ -58,6 +61,7 @@ html(lang="en")
                             const orderOptionMarket=document.querySelector('#order-option-market');
                             const orderOptionSmarket=document.querySelector('#order-option-sMarket');
                             const orderOptionSlimit=document.querySelector('#order-option-sLimit');
+                            const InputStopLimitPrice = document.querySelector('.input-StopLimit-price')
 
                             const buyBtn = document.querySelector('#buy-btn');
                             const sellBtn = document.querySelector('#sell-btn');
@@ -74,8 +78,17 @@ html(lang="en")
                                 }else{
                                     document.querySelector('.input-limit-price').style.display = 'flex'
                                 }
+                                if(orderOptionSlimit.checked == true){
+                                    InputStopLimitPrice.style.display = 'flex'
+                                }else{
+                                    InputStopLimitPrice.style.display = 'none'
+                                }
+                                 if(orderOptionSmarket.checked == true){
+                                    document.querySelector('.limit-price').innerHTML='Stop Price'
+                                }else{
+                                    document.querySelector('.limit-price').innerHTML='Limit Price'
+                                }
                             }
-
                             const buySellBtn = ()=>{
                                 if(buyBtn.checked == true){
                                     buyBtnText.setAttribute('style', 'background-color:rgb(0, 151, 50);animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);');
