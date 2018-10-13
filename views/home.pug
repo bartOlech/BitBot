@@ -6,7 +6,55 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
         title Document
         link(rel='stylesheet' href='css/style.css')
+        link(href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet")
     body
         .container 
             .header-content
-                h2.header-text BitBot
+                div.header-text BitBot
+            .main-content
+                h3.trade-info-text Place Order
+                   .down-arrow
+                form.trade-form(action="/trade" method='POST')
+                    .radio-group
+                        input(type='radio' id='order-option-limit' name='trade-type' checked='checked')
+                        label(for='order-option-limit' class='order-option') Limit 
+                        input(type='radio' id='order-option-market' name='trade-type')
+                        label(for='order-option-market' class='order-option') Market 
+                        input(type='radio' id='order-option-sMarket' name='trade-type')
+                        label(for='order-option-sMarket' class='order-option') S. Market 
+                        input(type='radio' id='order-option-sLimit' name='trade-type')
+                        label(for='order-option-sLimit' class='order-option') S. Limit
+                    .form-input
+                        label(for='input-quantity') Quantity
+                        input(type='text' name='quantity' id='input-quantity' placeholder='USD')
+                        .input-limit-price
+                            label(for='limit-price' class='limit-price') Limit Price
+                            input(type='text' class='limit-price' name='limit-price' id='limit-price' placeholder='USD')
+                        script.
+                            const checkOrder = ()=>{
+                                if(orderOptionMarket.checked == true){
+                                    document.querySelector('.input-limit-price').style.display = 'none'
+                                }else{
+                                    document.querySelector('.input-limit-price').style.display = 'flex'
+                                }
+                            }
+                            const orderOptionLimit=document.querySelector('#order-option-limit');
+                            const orderOptionMarket=document.querySelector('#order-option-market');
+                            const orderOptionSmarket=document.querySelector('#order-option-sMarket');
+                            const orderOptionSlimit=document.querySelector('#order-option-sLimit');
+                            orderOptionLimit.addEventListener('click', function(){
+                                checkOrder()
+                            })
+                            orderOptionMarket.addEventListener('click', function(){
+                                checkOrder()
+                            })
+                            orderOptionSmarket.addEventListener('click', function(){
+                                checkOrder()
+                            })
+                            orderOptionSlimit.addEventListener('click', function(){
+                               checkOrder()
+                            })
+                            
+                                
+
+                                

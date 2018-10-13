@@ -1,3 +1,95 @@
-.container{
-    background-color: rgb(252, 81, 81);
+body{
+    margin:0;
+    padding: 0;
+    background-color: rgb(228, 228, 228);
+}
+.header-content{
+    background-color: rgb(27, 26, 26);
+    width: 100vw;
+    height:80px;
+    border-bottom: 2px solid rgba(190, 21, 21, 0.63);
+}
+.header-text{
+    text-align:center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:2em;
+    font-weight:500;
+    color:#fff;
+    padding-top:4%;
+    font-style: italic;
+    
+}
+.trade-info-text{
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+
+}
+.down-arrow{
+    width: 0; 
+    height: 0; 
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid rgba(2, 2, 2, 0.164);
+    margin:auto;
+}
+.trade-form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.radio-group input{
+    position: absolute;
+    visibility: hidden;
+    display:none
+}
+.radio-group label{
+    color:rgb(0, 0, 0);
+    display:inline-block;
+    cursor:pointer;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-left: 1px solid rgba(27, 21, 21, 0.938);
+}
+.radio-group label:first-child{
+    border-left: 1px solid #fff;
+}
+.radio-group input:checked + label{
+    color:rgb(255, 255, 255);
+    background:rgba(27, 21, 21, 0.938);
+}
+.radio-group {
+    border: 1px solid rgba(27, 21, 21, 0.938);
+    display: inline-block;
+    margin: 40px 0 0 0;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.form-input{
+    display:flex;
+    flex-direction: column;
+    margin-top:40px;
+}
+.form-input label{
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    margin-bottom:8px;
+}
+.form-input input{
+    border:1px solid rgb(185, 185, 185);
+    border-radius: 2px;
+    width:200px;
+    height:20px;
+}
+.input-limit-price{
+    display:flex;
+    flex-direction: column;
+}
+.limit-price{
+    margin-top:15px;
+}
+#limit-price{
+    margin-top:0;
 }
