@@ -25,16 +25,34 @@ html(lang="en")
                         input(type='radio' id='order-option-sLimit' name='trade-type')
                         label(for='order-option-sLimit' class='order-option') S. Limit
                     .form-input
-                        label(for='input-quantity') Quantity
+                        label(for='input-quantity') Quantity:
                         input(type='text' name='quantity' id='input-quantity' placeholder='USD')
                         .input-limit-price
-                            label(for='limit-price' class='limit-price') Limit Price
+                            label(for='limit-price' class='limit-price') Limit Price:
                             input(type='text' class='limit-price' name='limit-price' id='limit-price' placeholder='USD')
                     .buy-sell-btn
                         input(type='radio' id='buy-btn' name='buy-sell' checked='checked')
                         label(for='buy-btn' class='buy-btn-text' style='animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);') Buy / Long 
                         input(type='radio' id='sell-btn' name='buy-sell')
-                        label(for='sell-btn' class='sell-btn-text') Sell / Short 
+                        label(for='sell-btn' class='sell-btn-text') Sell / Short
+                    .leverage-text Leverage:
+                    .form-leverage 
+                        select(name='slct-leverage' id='slct-leverage')
+                            option Leverage
+                            option(value='cross') Cross
+                            option(value='1x') 1x
+                            option(value='2x') 2x
+                            option(value='3x') 3x
+                            option(value='5x') 5x
+                            option(value='10x') 10x
+                            option(value='25x') 25x
+                            option(value='50x') 50x
+                            option(value='100x') 100x
+                    .balance-info 
+                        span Cost:
+                        span Order Value:
+                        span Available Balance:
+                    button(class='send-btn-buy send-btn') Buy
                         script.
                             const orderOptionLimit=document.querySelector('#order-option-limit');
                             const orderOptionMarket=document.querySelector('#order-option-market');
@@ -46,6 +64,10 @@ html(lang="en")
 
                             const buyBtnText = document.querySelector('.buy-btn-text');
                             const sellBtnText = document.querySelector('.sell-btn-text')
+
+                            const sendBtn = document.querySelector('.send-btn')
+
+
                             const checkOrder = ()=>{
                                 if(orderOptionMarket.checked == true){
                                     document.querySelector('.input-limit-price').style.display = 'none'
@@ -53,13 +75,20 @@ html(lang="en")
                                     document.querySelector('.input-limit-price').style.display = 'flex'
                                 }
                             }
+
                             const buySellBtn = ()=>{
                                 if(buyBtn.checked == true){
                                     buyBtnText.setAttribute('style', 'background-color:rgb(0, 151, 50);animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);');
                                      sellBtnText.setAttribute('style', 'background-color:rgba(204, 0, 0, 0.384)');
+                                     sendBtn.classList.remove('send-btn-sell')
+                                     sendBtn.classList.add('send-btn-buy');
+                                     sendBtn.innerHTML='Buy';
                                 }else{
-                                    sellBtnText.setAttribute('style', 'background-color:rgb(214, 47, 1);animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);');
+                                    sellBtnText.setAttribute('style', 'background-color:rgb(201, 8, 8);;animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);');
                                      buyBtnText.setAttribute('style', 'background-color:rgba(1, 187, 63, 0.384)');
+                                     sendBtn.classList.remove('send-btn-buy');
+                                     sendBtn.classList.add('send-btn-sell');
+                                      sendBtn.innerHTML='Sell';
                                 }
                             }
                             buyBtn.addEventListener('click', function(){

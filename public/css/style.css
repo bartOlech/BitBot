@@ -12,10 +12,10 @@ body{
 .header-text{
     text-align:center;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size:2em;
+    font-size:2.2em;
     font-weight:500;
     color:#fff;
-    padding-top:4%;
+    padding-top:15px;
     font-style: italic;
     
 }
@@ -36,7 +36,6 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-
 }
 .radio-group input{
     position: absolute;
@@ -61,7 +60,6 @@ body{
 }
 .radio-group {
     display: inline-block;
-    margin: 40px 0 0 0;
     border-radius: 3px;
     overflow: hidden;
     background-color: rgba(64, 105, 255, 0.349);
@@ -69,7 +67,7 @@ body{
 .form-input{
     display:flex;
     flex-direction: column;
-    margin-top:40px;
+    margin-top:30px;
 }
 .form-input label{
     text-align: center;
@@ -131,3 +129,110 @@ body{
 .pulse{
     animation:pulse 2s infinite;
 }
+
+
+.leverage-text{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    margin-bottom:-40px;
+    margin-top:30px;
+}
+.form-leverage{
+    position: relative;
+    display: block;
+    width: 14.5em;
+    height: 2.5em;
+    line-height: 2;
+    background: #2c3e50;
+    overflow: hidden;
+    border-radius: .25em;
+    margin-top:50px;
+}
+.form-leverage select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #2c3e50;
+    background-image: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1em;
+    padding-left:65px;
+}
+.form-leverage select::-ms-expand {
+    display: none;
+  }
+  .form-leverage select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 1em;
+    background: #34495e;
+    pointer-events: none;
+  }
+  .form-leverage::after{
+    content: '\25C0';
+    position: absolute;
+    top: 2px;
+    right: 0;
+    bottom: 0;
+    padding: 0 1em;
+    background: #34495e;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+  }
+  .form-leverage:hover::after {
+    color: #0daac5;
+  }
+
+  .balance-info {
+      display:flex;
+      flex-direction: column;
+      padding-top:3px;
+  }
+  .balance-info span{
+    padding-top:3px;
+    font-size:0.8em;
+  }
+
+  .send-btn{
+      margin-top:20px;
+      width:280px;
+      height:40px;
+      border-radius: 4px;
+      color:#fff;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.2em;
+      cursor:pointer;
+      box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
+  }
+  .send-btn-buy{
+    background: rgb(0, 151, 50);
+    border:1px solid rgb(0, 151, 50);
+  }
+  .send-btn-buy:hover{
+    background: rgb(0, 109, 36);
+    box-shadow: -2px 2px 16px rgba(0, 0, 0, 0.6);
+  }
+  .send-btn-sell{
+    background: rgb(201, 8, 8);
+    border:1px solid rgb(201, 8, 8);
+  }
+  .send-btn-sell:hover{
+    background: rgb(134, 4, 4);
+    border:1px solid rgb(134, 4, 4);
+    box-shadow: -2px 2px 16px rgba(0, 0, 0, 0.6);
+  }
+
