@@ -17,7 +17,7 @@ html(lang="en")
                 form.trade-form(action="/trade" method='POST')
                     .radio-group
                         input(type='radio' id='order-option-limit' name='trade-type' checked='checked')
-                        label(for='order-option-limit' class='order-option') Limit 
+                        label(for='order-option-limit' id='order-option-limit-text' class='order-option') Limit 
                         input(type='radio' id='order-option-market' name='trade-type')
                         label(for='order-option-market' class='order-option') Market 
                         input(type='radio' id='order-option-sMarket' name='trade-type')
@@ -30,7 +30,22 @@ html(lang="en")
                         .input-limit-price
                             label(for='limit-price' class='limit-price') Limit Price
                             input(type='text' class='limit-price' name='limit-price' id='limit-price' placeholder='USD')
+                    .buy-sell-btn
+                        input(type='radio' id='buy-btn' name='buy-sell' checked='checked')
+                        label(for='buy-btn' class='buy-btn-text' style='animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);') Buy / Long 
+                        input(type='radio' id='sell-btn' name='buy-sell')
+                        label(for='sell-btn' class='sell-btn-text') Sell / Short 
                         script.
+                            const orderOptionLimit=document.querySelector('#order-option-limit');
+                            const orderOptionMarket=document.querySelector('#order-option-market');
+                            const orderOptionSmarket=document.querySelector('#order-option-sMarket');
+                            const orderOptionSlimit=document.querySelector('#order-option-sLimit');
+
+                            const buyBtn = document.querySelector('#buy-btn');
+                            const sellBtn = document.querySelector('#sell-btn');
+
+                            const buyBtnText = document.querySelector('.buy-btn-text');
+                            const sellBtnText = document.querySelector('.sell-btn-text')
                             const checkOrder = ()=>{
                                 if(orderOptionMarket.checked == true){
                                     document.querySelector('.input-limit-price').style.display = 'none'
@@ -38,10 +53,22 @@ html(lang="en")
                                     document.querySelector('.input-limit-price').style.display = 'flex'
                                 }
                             }
-                            const orderOptionLimit=document.querySelector('#order-option-limit');
-                            const orderOptionMarket=document.querySelector('#order-option-market');
-                            const orderOptionSmarket=document.querySelector('#order-option-sMarket');
-                            const orderOptionSlimit=document.querySelector('#order-option-sLimit');
+                            const buySellBtn = ()=>{
+                                if(buyBtn.checked == true){
+                                    buyBtnText.setAttribute('style', 'background-color:rgb(0, 151, 50);animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);');
+                                     sellBtnText.setAttribute('style', 'background-color:rgba(204, 0, 0, 0.384)');
+                                }else{
+                                    sellBtnText.setAttribute('style', 'background-color:rgb(214, 47, 1);animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);');
+                                     buyBtnText.setAttribute('style', 'background-color:rgba(1, 187, 63, 0.384)');
+                                }
+                            }
+                            buyBtn.addEventListener('click', function(){
+                                buySellBtn()
+                            })
+                             sellBtn.addEventListener('click', function(){
+                                buySellBtn()
+                            })
+
                             orderOptionLimit.addEventListener('click', function(){
                                 checkOrder()
                             })

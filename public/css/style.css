@@ -4,10 +4,10 @@ body{
     background-color: rgb(228, 228, 228);
 }
 .header-content{
-    background-color: rgb(27, 26, 26);
+    background-color: rgba(1, 7, 32, 0.938);
     width: 100vw;
     height:80px;
-    border-bottom: 2px solid rgba(190, 21, 21, 0.63);
+    border-bottom: 2px solid rgb(18, 112, 107);
 }
 .header-text{
     text-align:center;
@@ -49,22 +49,22 @@ body{
     cursor:pointer;
     font-weight: bold;
     padding: 5px 20px;
-    border-left: 1px solid rgba(27, 21, 21, 0.938);
+    font-family: 'Source Sans Pro', sans-serif;
+    border-left: 1px solid rgba(1, 7, 32, 0.938);
 }
-.radio-group label:first-child{
-    border-left: 1px solid #fff;
+#order-option-limit-text{
+    border-left: none;
 }
 .radio-group input:checked + label{
     color:rgb(255, 255, 255);
-    background:rgba(27, 21, 21, 0.938);
+    background:rgba(1, 7, 32, 0.938);
 }
 .radio-group {
-    border: 1px solid rgba(27, 21, 21, 0.938);
     display: inline-block;
     margin: 40px 0 0 0;
     border-radius: 3px;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: rgba(64, 105, 255, 0.349);
 }
 .form-input{
     display:flex;
@@ -92,4 +92,42 @@ body{
 }
 #limit-price{
     margin-top:0;
+}
+
+.buy-sell-btn input{
+    position: absolute;
+    visibility: hidden;
+    display:none
+}
+.buy-sell-btn label{
+    color:rgb(0, 0, 0);
+    display:inline-block;
+    cursor:pointer;
+    font-weight: bold;
+    padding: 5px 20px;
+}
+.buy-sell-btn input:checked + label{
+    color:rgb(255, 255, 255);
+}
+.buy-btn-text{
+    background-color:rgb(0, 151, 50);
+}
+.sell-btn-text{
+    background-color:rgba(204, 0, 0, 0.384);
+}
+@keyframes pulse{
+    0%{opacity:0.9}
+    50%{opacity:1}
+    100%{opacity:0.9}
+}
+.buy-sell-btn {
+
+    display: inline-block;
+    margin: 40px 0 0 0;
+    border-radius: 3px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+.pulse{
+    animation:pulse 2s infinite;
 }
