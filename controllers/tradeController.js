@@ -1,8 +1,8 @@
 const request = require('request');
 const crypto = require('crypto');
 
-const apiKey = "###";
-const apiSecret = "###";
+const apiKey = "###";     ////////////////////////////////////////////////////////
+const apiSecret = "###";    ///////////////////////////////////////////////////
 
 exports.trade = (req, res)=>{
 
