@@ -15,6 +15,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(flash())
 
+app.use(expressSession({
+    secret:'form',
+    resave:false, 
+    saveUninitialized:true
+}))
+
 app.use('/', router);
 
 module.exports = app;

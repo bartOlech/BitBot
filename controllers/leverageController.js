@@ -4,18 +4,13 @@ const crypto = require('crypto');
 const apiKey = "xa3truWVgi6moOLAJfDcV73H";
 const apiSecret = "Bi1m0Ihyzb3x_QyLdoLW1u_ZVkpSjXRunU8M3edSlqxBrPys";
 
-exports.trade = (req, res)=>{
+exports.leverage = (req, res, next)=>{
 
 var verb = 'POST',
-  path = '/api/v1/order',
+  path = '/api/v1/position/leverage',
   expires = new Date().getTime() + (60 * 1000), // 1 min in the future
   data = {symbol:"XBTUSD",
-  orderQty:req.body.quantity,
-  price:req.body.limitPrice?req.body.limitPrice:null,
-  ordType:req.body.tradeType,
-  side:req.body.buySell,
-  stopPx:req.body.stopPrice?req.body.stopPrice:null
-};
+    leverage:req.body.slctLeverage};
 
 const postBody = JSON.stringify(data);
 
@@ -41,6 +36,6 @@ const requestOptions = {
         if (error) { console.log(error); }
         console.log(req.body.limitPrice);
       });
-      res.redirect('/')
+      next()
 
 }

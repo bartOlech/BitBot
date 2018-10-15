@@ -16,41 +16,41 @@ html(lang="en")
                    .down-arrow
                 form.trade-form(action="/trade" method='POST')
                     .radio-group
-                        input(type='radio' id='order-option-limit' name='trade-type' checked='checked')
+                        input(type='radio' id='order-option-limit' name='tradeType' checked='checked' value='Limit')
                         label(for='order-option-limit' id='order-option-limit-text' class='order-option') Limit 
-                        input(type='radio' id='order-option-market' name='trade-type')
+                        input(type='radio' value='Market' id='order-option-market' name='tradeType')
                         label(for='order-option-market' class='order-option') Market 
-                        input(type='radio' id='order-option-sMarket' name='trade-type')
+                        input(type='radio' value='Stop' id='order-option-sMarket' name='tradeType')
                         label(for='order-option-sMarket' class='order-option') S. Market 
-                        input(type='radio' id='order-option-sLimit' name='trade-type')
+                        input(type='radio' value='StopLimit' id='order-option-sLimit' name='tradeType')
                         label(for='order-option-sLimit' class='order-option') S. Limit
                     .form-input
                         label(for='input-quantity') Quantity:
                         input(type='text' name='quantity' id='input-quantity' placeholder='USD')
                         .input-limit-price
                             label(for='limit-price' class='limit-price') Limit Price:
-                            input(type='text' class='limit-price' name='limit-price' id='limit-price' placeholder='USD')
+                            input(type='text' class='limit-price' name='limitPrice' id='limit-price' placeholder='USD')
                         .input-StopLimit-price(style='display:none')
                             label(for='stop-limit-price' class='Slimit-price') Stop Price:
-                            input(type='text' class='stop-limit-price' name='limit-price' id='stop-limit-price' placeholder='USD')
+                            input(type='text' class='stop-limit-price' name='stopPrice' id='stop-limit-price' placeholder='USD')
                     .buy-sell-btn
-                        input(type='radio' id='buy-btn' name='buy-sell' checked='checked')
+                        input(type='radio' value='Buy' id='buy-btn' name='buySell' checked='checked')
                         label(for='buy-btn' class='buy-btn-text' style='animation:pulse 1500ms infinite;border-bottom: 3px solid rgb(51, 58, 82);') Buy / Long 
-                        input(type='radio' id='sell-btn' name='buy-sell')
+                        input(type='radio' value='Sell' id='sell-btn' name='buySell')
                         label(for='sell-btn' class='sell-btn-text') Sell / Short
                     .leverage-text Leverage:
                     .form-leverage 
-                        select(name='slct-leverage' id='slct-leverage')
+                        select(name='slctLeverage' id='slct-leverage')
                             option Leverage
-                            option(value='cross') Cross
-                            option(value='1x') 1x
-                            option(value='2x') 2x
-                            option(value='3x') 3x
-                            option(value='5x') 5x
-                            option(value='10x') 10x
-                            option(value='25x') 25x
-                            option(value='50x') 50x
-                            option(value='100x') 100x
+                            option(value='0') Cross
+                            option(value='1') 1x
+                            option(value='2') 2x
+                            option(value='3') 3x
+                            option(value='5') 5x
+                            option(value='10' selected='selected') 10x
+                            option(value='25') 25x
+                            option(value='50') 50x
+                            option(value='100') 100x
                     .balance-info 
                         span Cost:
                         span Order Value:
@@ -74,19 +74,31 @@ html(lang="en")
 
                             const checkOrder = ()=>{
                                 if(orderOptionMarket.checked == true){
-                                    document.querySelector('.input-limit-price').style.display = 'none'
+                                    document.querySelector('.input-limit-price').style.display = 'none';
+                                    
                                 }else{
-                                    document.querySelector('.input-limit-price').style.display = 'flex'
+                                    document.querySelector('.input-limit-price').style.display = 'flex';
                                 }
                                 if(orderOptionSlimit.checked == true){
-                                    InputStopLimitPrice.style.display = 'flex'
+                                    InputStopLimitPrice.style.display = 'flex';
                                 }else{
-                                    InputStopLimitPrice.style.display = 'none'
+                                    InputStopLimitPrice.style.display = 'none';
                                 }
                                  if(orderOptionSmarket.checked == true){
-                                    document.querySelector('.limit-price').innerHTML='Stop Price'
+                                     document.querySelector('.input-limit-price').style.display = 'none';
+                                     InputStopLimitPrice.style.display = 'flex';
                                 }else{
-                                    document.querySelector('.limit-price').innerHTML='Limit Price'
+                                    document.querySelector('.input-limit-price').style.display = 'flex';
+                                    InputStopLimitPrice.style.display = 'none';
+                                    if(orderOptionSmarket.checked == false && document.querySelector('#order-option-limit').checked == false){
+                                        InputStopLimitPrice.style.display = 'flex';
+                                    }
+                                    if(orderOptionMarket.checked == true){
+                                        document.querySelector('.input-limit-price').style.display = 'none';
+                                    }
+                                }
+                                if(orderOptionMarket.checked == true){
+                                    InputStopLimitPrice.style.display = 'none';
                                 }
                             }
                             const buySellBtn = ()=>{
