@@ -1,8 +1,8 @@
 const request = require('request');
 const crypto = require('crypto');
 
-const apiKey = "###"; //////////////////////////////////////////
-const apiSecret = "###";  ////////////////////////////////////////
+const apiKey = "xa3truWVgi6moOLAJfDcV73H";
+const apiSecret = "Bi1m0Ihyzb3x_QyLdoLW1u_ZVkpSjXRunU8M3edSlqxBrPys";
 
 exports.leverage = (req, res, next)=>{
 
@@ -34,7 +34,6 @@ const requestOptions = {
 
     request(requestOptions, (error, response, body)=> {
         if (error) { console.log(error); }
-        console.log(req.body.limitPrice);
       });
       next()
 

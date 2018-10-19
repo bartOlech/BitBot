@@ -4,11 +4,16 @@ const router = express.Router();
 const homeController = require('../controllers/homeController');
 const tradeController = require('../controllers/tradeController');
 const leverageController = require('../controllers/leverageController');
+const userInfoController = require('../controllers/userInfoController');
 
-router.get('/', homeController.home);
+
 router.post('/trade',
+    userInfoController.userInfo,
     leverageController.leverage,
-    tradeController.trade)
+    tradeController.trade
+    );
 
+router.get('/', homeController.home
+    );
 module.exports = router;
 

@@ -4,17 +4,12 @@ const crypto = require('crypto');
 const apiKey = "xa3truWVgi6moOLAJfDcV73H";
 const apiSecret = "Bi1m0Ihyzb3x_QyLdoLW1u_ZVkpSjXRunU8M3edSlqxBrPys";
 
-exports.trade = (req, res)=>{
+exports.userInfo = (req, res, next)=>{
 
-var verb = 'POST',
-  path = '/api/v1/order',
+var verb = 'GET',
+  path = '/api/v1/position',
   expires = new Date().getTime() + (60 * 1000), // 1 min in the future
-  data = {symbol:"XBTUSD",
-  orderQty:req.body.quantity,
-  price:req.body.limitPrice?req.body.limitPrice:null,
-  ordType:req.body.tradeType,
-  side:req.body.buySell,
-  stopPx:req.body.stopPrice?req.body.stopPrice:null, 
+  data = {
 };
 
 const postBody = JSON.stringify(data);
@@ -36,9 +31,13 @@ const requestOptions = {
     method: verb,
     body: postBody
   };
+
     request(requestOptions, (error, response, body)=> {
         if (error) { console.log(error); }
-        //console.log(body.orderID);
-      });
-      res.redirect('/')
+        const arr = JSON.parse(body)
+        //console.log(arr[0].account);
+        req.flash('price', `${arr[0].markPrice}`)
+        req.flash('coin', `${arr[0].symbol}`)
+        next()
+        });
 }
