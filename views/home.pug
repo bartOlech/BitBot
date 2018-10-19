@@ -26,10 +26,13 @@ html(lang="en")
                         label(for='order-option-sLimit' class='order-option') S. Limit
                     .form-input
                         label(for='input-quantity') Quantity:
-                        input(type='text' name='quantity' id='input-quantity' placeholder='USD')
+                        input(type='text' name='quantity' id='input-quantity' placeholder='USD' value=validated ? validated.quantity:'')
+                        if(errors && errors.quantity)
+                            p.validation-error #{errors.quantity.msg}
                         .input-limit-price
                             label(for='limit-price' class='limit-price') Limit Price:
                             input(type='text' class='limit-price' name='limitPrice' id='limit-price' placeholder='USD')
+                            
                         .input-StopLimit-price(style='display:none')
                             label(for='stop-limit-price' class='Slimit-price') Stop Price:
                             input(type='text' class='stop-limit-price' name='stopPrice' id='stop-limit-price' placeholder='USD')

@@ -8,6 +8,8 @@ const userInfoController = require('../controllers/userInfoController');
 
 
 router.post('/trade',
+    tradeController.validate,
+    tradeController.checkValidation,
     userInfoController.userInfo,
     leverageController.leverage,
     tradeController.trade

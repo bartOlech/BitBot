@@ -241,3 +241,10 @@ body{
     box-shadow: -2px 2px 16px rgba(0, 0, 0, 0.6);
   }
 
+  /* validation */
+  .validation-error{
+      color:red;
+      font-family: 'Source Sans Pro', sans-serif;
+      text-align:center;
+  }
+
