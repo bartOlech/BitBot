@@ -1,9 +1,10 @@
 const request = require('request');
 const crypto = require('crypto');
 const { check, validationResult } = require('express-validator/check');
+const conf = require('../config/api');
 
-const apiKey = "xa3truWVgi6moOLAJfDcV73H";
-const apiSecret = "Bi1m0Ihyzb3x_QyLdoLW1u_ZVkpSjXRunU8M3edSlqxBrPys";
+const apiKey = conf.apiKey;
+const apiSecret = conf.apiSecret;
 
 exports.validate = [
   check('quantity').trim().isLength({ min: 1 }).withMessage('Quantity is required!'),
