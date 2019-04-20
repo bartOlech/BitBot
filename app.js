@@ -12,13 +12,15 @@ app.set('view engine', 'pug')
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(flash())
 
 app.use(expressSession({
-    secret:'form',
-    resave:false, 
-    saveUninitialized:true
+    secret: 'form',
+    resave: false,
+    saveUninitialized: true
 }))
 
 app.use('/', router);

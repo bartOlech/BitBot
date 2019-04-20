@@ -1,132 +1,164 @@
-body{
-    margin:0;
+body {
+    margin: 0;
     padding: 0;
     background-color: rgb(228, 228, 228);
 }
-.header-content{
+
+.header-content {
     background-color: rgba(1, 7, 32, 0.938);
     width: 100vw;
-    height:80px;
+    height: 80px;
     border-bottom: 2px solid rgb(18, 112, 107);
 }
-.header-text{
-    text-align:center;
+
+.header-text {
+    text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size:2.2em;
-    font-weight:500;
-    color:#fff;
-    padding-top:15px;
+    font-size: 2.2em;
+    font-weight: 500;
+    color: #fff;
+    padding-top: 15px;
     font-style: italic;
-    
+
 }
-.trade-info-text{
+
+.trade-info-text {
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
 
 }
-.api-info{
+
+.api-info {
     color: red;
     text-align: center;
 }
-.down-arrow{
-    width: 0; 
-    height: 0; 
+
+.down-arrow {
+    width: 0;
+    height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
     border-top: 20px solid rgba(2, 2, 2, 0.164);
-    margin:auto;
+    margin: auto;
 }
-.trade-form{
-    display:flex;
+
+.trade-form {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
-.radio-group input{
+
+.radio-group input {
     position: absolute;
     visibility: hidden;
-    display:none
+    display: none
 }
-.radio-group label{
-    color:rgb(0, 0, 0);
-    display:inline-block;
-    cursor:pointer;
+
+.radio-group label {
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    cursor: pointer;
     font-weight: bold;
     padding: 5px 20px;
     font-family: 'Source Sans Pro', sans-serif;
     border-left: 1px solid rgba(1, 7, 32, 0.938);
 }
-#order-option-limit-text{
+
+#order-option-limit-text {
     border-left: none;
 }
-.radio-group input:checked + label{
-    color:rgb(255, 255, 255);
-    background:rgba(1, 7, 32, 0.938);
+
+.radio-group input:checked+label {
+    color: rgb(255, 255, 255);
+    background: rgba(1, 7, 32, 0.938);
 }
+
 .radio-group {
     display: inline-block;
     border-radius: 3px;
     overflow: hidden;
     background-color: rgba(64, 105, 255, 0.349);
 }
-.form-input{
-    display:flex;
+
+.form-input {
+    display: flex;
     flex-direction: column;
-    margin-top:30px;
+    margin-top: 30px;
 }
-.form-input label{
+
+.form-input label {
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
-    margin-bottom:8px;
-}
-.form-input input{
-    border:1px solid rgb(185, 185, 185);
-    border-radius: 2px;
-    width:200px;
-    height:20px;
-}
-.input-limit-price{
-    display:flex;
-    flex-direction: column;
-}
-.limit-price{
-    margin-top:15px;
-}
-#limit-price{
-    margin-top:0;
-}
-.input-StopLimit-price{
-    display:flex;
-    flex-direction: column;
-    margin-top:15px;
+    margin-bottom: 8px;
 }
 
-.buy-sell-btn input{
+.form-input input {
+    border: 1px solid rgb(185, 185, 185);
+    border-radius: 2px;
+    width: 200px;
+    height: 20px;
+}
+
+.input-limit-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.limit-price {
+    margin-top: 15px;
+}
+
+#limit-price {
+    margin-top: 0;
+}
+
+.input-StopLimit-price {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.buy-sell-btn input {
     position: absolute;
     visibility: hidden;
-    display:none
+    display: none
 }
-.buy-sell-btn label{
-    color:rgb(0, 0, 0);
-    display:inline-block;
-    cursor:pointer;
+
+.buy-sell-btn label {
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    cursor: pointer;
     font-weight: bold;
     padding: 5px 20px;
 }
-.buy-sell-btn input:checked + label{
-    color:rgb(255, 255, 255);
+
+.buy-sell-btn input:checked+label {
+    color: rgb(255, 255, 255);
 }
-.buy-btn-text{
-    background-color:rgb(0, 151, 50);
+
+.buy-btn-text {
+    background-color: rgb(0, 151, 50);
 }
-.sell-btn-text{
-    background-color:rgba(204, 0, 0, 0.384);
+
+.sell-btn-text {
+    background-color: rgba(204, 0, 0, 0.384);
 }
-@keyframes pulse{
-    0%{opacity:0.9}
-    50%{opacity:1}
-    100%{opacity:0.9}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.9
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0.9
+    }
 }
+
 .buy-sell-btn {
 
     display: inline-block;
@@ -135,18 +167,20 @@ body{
     overflow: hidden;
     background-color: #ffffff;
 }
-.pulse{
-    animation:pulse 2s infinite;
+
+.pulse {
+    animation: pulse 2s infinite;
 }
 
 
-.leverage-text{
+.leverage-text {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
-    margin-bottom:-40px;
-    margin-top:30px;
+    margin-bottom: -40px;
+    margin-top: 30px;
 }
-.form-leverage{
+
+.form-leverage {
     position: relative;
     display: block;
     width: 14.5em;
@@ -155,9 +189,10 @@ body{
     background: #2c3e50;
     overflow: hidden;
     border-radius: .25em;
-    margin-top:50px;
+    margin-top: 50px;
 }
-.form-leverage select{
+
+.form-leverage select {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -174,12 +209,14 @@ body{
     cursor: pointer;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.1em;
-    padding-left:65px;
+    padding-left: 65px;
 }
+
 .form-leverage select::-ms-expand {
     display: none;
-  }
-  .form-leverage select::after {
+}
+
+.form-leverage select::after {
     content: '\25BC';
     position: absolute;
     top: 0;
@@ -188,8 +225,9 @@ body{
     padding: 0 1em;
     background: #34495e;
     pointer-events: none;
-  }
-  .form-leverage::after{
+}
+
+.form-leverage::after {
     content: '\25C0';
     position: absolute;
     top: 2px;
@@ -201,54 +239,59 @@ body{
     -webkit-transition: .25s all ease;
     -o-transition: .25s all ease;
     transition: .25s all ease;
-  }
-  .form-leverage:hover::after {
+}
+
+.form-leverage:hover::after {
     color: #0daac5;
-  }
+}
 
-  .balance-info {
-      display:flex;
-      flex-direction: column;
-      padding-top:3px;
-  }
-  .balance-info span{
-    padding-top:3px;
-    font-size:0.8em;
-  }
+.balance-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3px;
+}
 
-  .send-btn{
-      margin-top:20px;
-      width:280px;
-      height:40px;
-      border-radius: 4px;
-      color:#fff;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 1.2em;
-      cursor:pointer;
-      box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
-  }
-  .send-btn-buy{
+.balance-info span {
+    padding-top: 3px;
+    font-size: 0.8em;
+}
+
+.send-btn {
+    margin-top: 20px;
+    width: 280px;
+    height: 40px;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.send-btn-buy {
     background: rgb(0, 151, 50);
-    border:1px solid rgb(0, 151, 50);
-  }
-  .send-btn-buy:hover{
+    border: 1px solid rgb(0, 151, 50);
+}
+
+.send-btn-buy:hover {
     background: rgb(0, 109, 36);
     box-shadow: -2px 2px 16px rgba(0, 0, 0, 0.6);
-  }
-  .send-btn-sell{
+}
+
+.send-btn-sell {
     background: rgb(201, 8, 8);
-    border:1px solid rgb(201, 8, 8);
-  }
-  .send-btn-sell:hover{
+    border: 1px solid rgb(201, 8, 8);
+}
+
+.send-btn-sell:hover {
     background: rgb(134, 4, 4);
-    border:1px solid rgb(134, 4, 4);
+    border: 1px solid rgb(134, 4, 4);
     box-shadow: -2px 2px 16px rgba(0, 0, 0, 0.6);
-  }
+}
 
-  /* validation */
-  .validation-error{
-      color:red;
-      font-family: 'Source Sans Pro', sans-serif;
-      text-align:center;
-  }
-
+/* validation */
+.validation-error {
+    color: red;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+}

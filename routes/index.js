@@ -13,9 +13,7 @@ router.post('/trade',
     userInfoController.userInfo,
     leverageController.leverage,
     tradeController.trade
-    );
+);
 
-router.get('/', homeController.home
-    );
+router.get('/', homeController.home);
 module.exports = router;
-
